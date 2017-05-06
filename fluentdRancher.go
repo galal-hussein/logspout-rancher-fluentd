@@ -81,6 +81,7 @@ func NewFluentdAdapter(route *router.Route) (router.LogAdapter, error) {
 
 func getInfraTag(m *router.Message) string {
 	containerImage := strings.Split(m.Container.Image, ":")[0]
+	log.Println("containerImage: ", containerImage)
 	for k, v := range infraStackImages {
 		for _, image := range v {
 			if image == containerImage {
